@@ -1,4 +1,5 @@
 from model import evaluate_model
+from random_search import run_random_search
 
 if __name__ == "__main__":
 
@@ -9,3 +10,8 @@ if __name__ == "__main__":
     )
 
     print("Baseline score:", score)
+
+
+
+print("\n=== RANDOM SEARCH ===")
+best_random = run_random_search()
