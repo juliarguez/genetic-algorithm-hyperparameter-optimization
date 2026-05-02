@@ -1,5 +1,7 @@
 from ga import run_genetic_algorithm
 from random_search import run_random_search
+
+
 def run_experiments(n_runs=5):
 
     ga_results = []
@@ -18,3 +20,11 @@ def run_experiments(n_runs=5):
         random_results.append(score)
 
     return ga_results, random_results
+
+
+def print_statistics(results, name):
+
+    print(f"\n=== {name} STATISTICS ===")
+    print("Best:", max(results))
+    print("Worst:", min(results))
+    print("Average:", sum(results)/len(results))
