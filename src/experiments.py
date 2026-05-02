@@ -1,5 +1,6 @@
 from ga import run_genetic_algorithm
 from random_search import run_random_search
+import pandas as pd
 
 
 def run_experiments(n_runs=5):
@@ -28,3 +29,13 @@ def print_statistics(results, name):
     print("Best:", max(results))
     print("Worst:", min(results))
     print("Average:", sum(results)/len(results))
+
+
+def save_results(ga_results, random_results):
+
+    df = pd.DataFrame({
+        "GA": ga_results,
+        "RandomSearch": random_results
+    })
+
+    df.to_csv("results/results.csv", index=False)
