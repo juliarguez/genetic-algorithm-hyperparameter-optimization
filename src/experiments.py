@@ -1,6 +1,7 @@
 from ga import run_genetic_algorithm
 from random_search import run_random_search
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def run_experiments(n_runs=5):
@@ -39,3 +40,17 @@ def save_results(ga_results, random_results):
     })
 
     df.to_csv("results/results.csv", index=False)
+
+
+def plot_results(ga_results, random_results):
+
+    plt.plot(ga_results, label="GA")
+    plt.plot(random_results, label="Random Search")
+
+    plt.xlabel("Run")
+    plt.ylabel("Accuracy")
+    plt.title("GA vs Random Search")
+
+    plt.legend()
+    plt.savefig("results/plots/comparison.png")
+    plt.show()
