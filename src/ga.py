@@ -98,6 +98,10 @@ def run_genetic_algorithm(pop_size=10, n_gen=5):
 
         # Print best in generation
         best = tools.selBest(pop, 1)[0]
+
+        if not best.fitness.valid:
+            best.fitness.values = toolbox.evaluate(best)
+
         print("Best so far:", best, best.fitness.values[0])
 
     # Final best
